@@ -9,19 +9,17 @@ main().catch((err) => {
 });
 
 async function main() {
-  const argv = yargs
-    .options({
-               report: {
-                 type: 'array',
-                 desc: 'Path of json coverage report file',
-                 demandOption: true,
-               },
-               reporters: {
-                 type: 'array',
-                 default: ['json', 'lcov', 'text'],
-               },
-             })
-    .argv;
+  const argv = yargs.options({
+    report: {
+      type: 'array',
+      desc: 'Path of json coverage report file',
+      demandOption: true,
+    },
+    reporters: {
+      type: 'array',
+      default: ['json', 'lcov', 'text'],
+    },
+  }).argv;
 
   const reportFiles = argv.report as string[];
   const reporters = argv.reporters as string[];

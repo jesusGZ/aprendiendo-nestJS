@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [ 
+  imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -12,9 +12,9 @@ import { UsersModule } from './users/users.module';
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
       autoLoadEntities: true,
-      synchronize: !!process.env.DB_SYNC
+      synchronize: !!process.env.DB_SYNC,
     }),
-    UsersModule
+    UsersModule,
   ],
   controllers: [],
   providers: [],
