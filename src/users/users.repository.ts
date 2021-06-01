@@ -27,7 +27,7 @@ export class UsersRepository {
   }
 
   async updateUser(id: string, userDTO: UserDTO): Promise<UserEntity> {
-    userDTO.id = id;
+    id = userDTO.id;
     const updateUser = this.mapper.dtoToEntity(userDTO);
     await this.usersRepository.update(id, updateUser);
     return this.usersRepository.findOne(id);

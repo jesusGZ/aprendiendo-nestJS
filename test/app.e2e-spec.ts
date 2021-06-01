@@ -1,5 +1,6 @@
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
+import { TypeORMExceptionFilter } from 'filters/typeorm-exceptions.filter';
 import { UserDTO } from 'src/users/user.dto';
 import * as request from 'supertest';
 import { AppModule } from '../src/app.module';
@@ -12,8 +13,8 @@ describe('UsersController (e2e)', () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule, UsersModule],
     }).compile();
-
     app = moduleFixture.createNestApplication();
+    app.useGlobalFilters(new TypeORMExceptionFilter());
     await app.init();
   });
 
