@@ -26,6 +26,7 @@ describe('UsersController (e2e)', () => {
 
     const newUser: UserDTO = {
       name: 'Mateo',
+      password: 'tfhgjhbhgj',
     };
     const newUserRequest = await server
       .post('/users')
@@ -45,6 +46,7 @@ describe('UsersController (e2e)', () => {
     const updateUser: UserDTO = {
       id: newUserRequest.body.id,
       name: 'Mateo Aguilera',
+      password: 'tfhgjhb444343',
     };
     const updateUserRequest = await server
       .put(`/users/${updateUser.id}`)
